@@ -3,30 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=>, initial-scale=1.0">
-    <title>Document</title>
+    <title>문서제목</title>
     <style>
         /*
-        태그선택자
-        id 선택자
+        태그선택자 = .
+        .login_btn
+        id 선택자 = #
         #aaa
         */
         div{
-            background-coler: rgb(200,200,200);
+            background-color: rgb(200,200,200);
             border: 1px solid  rgb(150,150,200);
             padding: 1rem;
             margin: 1rem;
         }
         #aaa{
-            background-coler: rgb(100,100,100)
+            background-color: rgb(100,100,100)
         }
         #bbb{
-            background-coler: rgb(10,10,10)
+            background-color: rgb(10,10,10)
         }
         #id{
             font-size:2rem
         }
         #password{
             font-size:2rem
+        }
+        .login_btn{
+            color: white;
+            background-color: rgb(230,30,30);
+            cursor: pointer;
+            border: none;
+            padding: 2rem 4rem;
+        }
+        .login_btn:hover{
+                        background-color: rgb(255,100,100);
         }
         /* htma -> css -> js -> node */
     </style>
@@ -35,12 +46,15 @@
     <h1>login</h1>
     <div id="aaa">
         <label for="id">id</label>
-        <input type="text" name="" id="id"
+        <input type="text" name="" id="id">
     </div>
 
     <div id="bbb">
         <label for="">password</label>
-        <input type="text" name="" id="password"
+        <input type="text" name="" id="password">
+    </div>
+    <div style="height: 5rem;">
+    <butten class="login_btn"> 로그인 </butten>
     </div>
 </body>
 </html>
