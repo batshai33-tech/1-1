@@ -49,4 +49,3 @@ del a[1]
 print(a)
 #이러면 a 의 1번쨰 값인 3이 사라지고 1, 5, one, two 를 출력한다
 #TMI 이때 다시 len 을 써서 리스트의 길이를 구하면 4가 나온다 
-print("Hello world!")
