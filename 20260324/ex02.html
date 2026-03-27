@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>메뉴를 선택해주세요</h1>
+<button id="cano">아메리카노</button>
+<button id="caffe">카페라떼</button>
+<button id="latte">연유라떼</button>
+<button id="icetea">아이스티</button>
+<div id="printcano"></div>
+<div id="printcaffe"></div>
+<div id="printlatte"></div>
+<div id="printicetea"></div>
+</body>
+</html>
+
+<script>
+    let cano = 0;
+    let caffe = 0;
+    let latte = 0;
+    let icetea = 0;
+    document.getElementById('cano').onclick = function(){
+        cano++;
+        document.getElementById('printcano').textContent = '아메리카노를' + cano + '개 선택하셨습니다';
+    }
+    document.getElementById('caffe').onclick = function(){
+        caffe++;
+        document.getElementById('printcaffe').textContent = '카페라떼를' + caffe + '개 선택하셨습니다';
+    }
+    document.getElementById('latte').onclick = function(){
+        latte++;
+        document.getElementById('printlatte').textContent = '연유라떼를' + latte + '개 선택하셨습니다';
+    }
+    document.getElementById('icetea').onclick = function(){
+        icetea++;
+        document.getElementById('printicetea').textContent = '아이스티를' + icetea + '개 선택하셨습니다';
+    }
+</script>

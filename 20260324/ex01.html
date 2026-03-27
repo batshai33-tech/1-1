@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>점수를 입력하세요</h1>
+    <input type="text" id = "score">
+    <button id="check">성적확인</button>
+    <div id="print"></div>
+</body>
+</html>
+<script>
+    const print = document.getElementById('print');
+    document.getElementById('check').onclick = function(){
+        const score = document.getElementById('score').value;
+    
+        // score 가 90 이상이면 A, 80 이상이면 B, 70 이상이면 C, 60 이상이면 D, 나머지는 F
+
+        if(score >= 90 && score <= 100){
+            print.textContent = 'A 학점입니다';
+        } else if(score >= 80 && score <= 90){
+            print.textContent = 'B 학점입니다';
+        } else if(score >= 70 && score <= 80){
+            print.textContent = 'C 학점입니다';
+        } else if(score >= 60 && score < 70){
+            print.textContent = 'D 학점입니다';
+        } else if(score >= 0 && score <= 60){
+            print.textContent = 'F 학점입니다';
+        } else {
+            print.textContent = '잘못된 점수입니다';
+        }
+    }
+</script>
