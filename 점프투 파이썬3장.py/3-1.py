@@ -62,4 +62,16 @@ elif can >= 1:
     print('100원 을 받으세요!')
 else:
     print('캔의 수량이 잘못되었습니다')
- 
+
+#밑에 코드를 보자
+score = 80
+if score >= 60:
+    print('합격입니다!')
+else:
+    print('불합격입니다!')
+#점수에 따라 합격과 불합격의 코드이다
+#이를 한줄로 한번 써볼수있다
+#모양은 변수 = 조건문이 참인경우의 값 if 조건문 else 조건문이 거짓인 경우의 값
+
+massge = '합격입니다!' if score>= 60 else '불합격입니다!'
+print(massge)

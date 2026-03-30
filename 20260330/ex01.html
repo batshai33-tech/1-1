@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+</head>
+
+<body>
+<h1>펙토리얼 4! 5!</h1>
+<input type="text" id="num">
+<button id="check">펙토리얼확인</button>
+<div id="print"></div>
+</body>
+</html>
+<script>
+
+document.getElementById('check').onclick = () => {
+const value = document.getElementById('num').value;
+  let i = 1;
+  for (let num = 1; num <= value; num++) {
+    i = i * num;
+  }
+document.getElementById('print').textContent = `${value} 의 결과는 ${i}입니다.`;
+}
+</script>
