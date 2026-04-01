@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style >
+        button{
+            background-color: rgb(200,200,200)
+        }
+        button:hover{
+            background-color: rgb(22,200,200)
+        }
+    </style>
+</head>
+<body>
+    <h1>숫자 두개를 입력받아 작은수에서 큰수까지 더해 출력하는 프로그램</h1>
+    작은수 :<input type="number" id="num1">
+    큰수 :<input type="number" id="num2">
+    <button id="check">출력</button>
+    <div id="print"></div>
+</body>
+</html>
+<script>
+    document.getElementById('check').onclick = () => {
+        const num1 = Number(document.getElementById('num1').value);
+        const num2 = Number(document.getElementById('num2').value);
+        let ch = num1;
+        let sum = 0;
+        while (ch <= num2) {
+            sum += ch;
+            console.log(ch);
+            ch++;
+        }
+        document.getElementById('print').textContent = sum;
+    }
+
+</script>
