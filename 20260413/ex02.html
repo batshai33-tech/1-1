@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value="버튼" id="btnClick" onclick="msg();"/>
+    <script>
+        function msg(){
+            console.log('btn0')
+        }
+        btnClick.addEventListener('click', function(){
+            console.log('btn1')
+        });
+        btnClick.addEventListener('click', function(){
+            console.log('btn2')
+        });
+        // document.getElementById 보다 간단한 신규함수
+    </script>
+</body>
+</html>

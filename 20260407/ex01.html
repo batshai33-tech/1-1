@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{box-sizing: border-box; /* 패딩없이 크기 설정 */ }
+        .main{
+            margin: 0 auto; /* 중간으로 */
+            width: 420px; /* 넒이 설정 */  
+            height: 220px ; /* 높이 설정*/
+            padding: 20px ; /* 크기 설정 */
+            background-color: rgb(220,220,220); /* 배경색 설정 */
+        }
+        input{
+            width: 100%;
+            padding: 12px 14px;
+            border: 1px solid black;
+            border-radius: 10px;
+            outline: none;
+        }
+        input:focus{
+            border-color: 1px solid rgba(20, 20, 220, 0.1);
+        }
+        button{
+            border: none;
+            border-radius: 5px 5px;
+            cursor: pointer;
+            margin: 14px;
+            padding: 12px 14px;
+            transition: 0.3s;
+            background-color: rgba(20, 20, 220, 0.4);
+            color: rgb(240, 240, 240);
+        }
+        /* button:active */
+        button:hover{
+            background: rgba(20, 20, 220, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <h1>생년월일</h1>
+        <input type="text" id="birth" value="2001/04/05">
+        <button id="check">나이계산</button>
+        <div id="print"></div>
+    </div>
+    </body>
+</body>
+</html>
+<script>
+    const calcu = function(){
+        const birth = document.getElementById('birth').value;
+        console.log(birth);
+        const birth_year = birth.split('/')[0];
+
+        const date = new Date();
+        console.log(date.toDateString())
+
+        const year = new Date().getFullYear();
+        console.log(year);
+
+        const ret = year - Number(birth[0]);
+        console.log(ret);
+    }
+    document.getElementById('check').onclick = calcu; 
+</script>
