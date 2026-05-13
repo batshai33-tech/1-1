@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        body{
+            background-color: rgb(234, 234, 234);
+        }
+        .lunch {
+            width: 600px;
+            background-color: white;
+            padding: 20px;
+            margin: 15px auto;
+        }
+        .lunch_box {
+            border-radius: 10px;
+            background-color: rgb(194, 255, 240);
+            padding: 30px;
+            margin-top: 15px;
+        }
+        .lunch_list{
+            background-color: rgb(255, 221, 221);
+            margin-bottom: 8px;
+        }
+        input{
+            border-radius: 5px;
+            width: 400px;
+            height: 30px;
+        }
+        button{
+            padding: 15px;
+            margin: 10px;
+            border: rgb(107, 141, 153);
+            border-radius: 10px;
+            color: rgb(255, 127, 127);
+            cursor: pointer;/*마우스를 같다대었을때 마우스 생김새 반응*/
+            background-color: rgb(255, 227, 137)
+        }
+        button:hover{/* :hover => 마우스를 같다댔을때 버튼(button) 반응 */
+            background-color:brown;
+        }
+        .event_box{
+            border-radius: 10px;
+            background-color: rgb(235, 255, 161);
+            padding: 30px;
+            margin-top: 15px;
+        }
+        /* css */
+    </style>
+    <div class = "lunch">
+        <h1>점심매뉴가 고민이신가요?</h1>
+        <p>여기서 추천받아보세요 직접 적어봐요!</p>
+        <div class = "lunch_box">
+            <h2>당신이 선택한 점심!</h2>
+            <p>이곳에서 어떤것이 골라질까요~?</p>
+            <ul id="lunch_list">
+            </ul>
+        </div>
+        <div class="lunch_box">
+            <h2>점심추가!</h2>
+        <input 
+        type="text"
+        id = "input_lunch"
+        placeholder="점심을 입력해주세요"
+        name = ""
+        >
+        <button id="add_btn">추가하기</button>
+        </div>
+        <div class="lunch_box">
+            <h2>점심삭제</h2>
+            <input 
+            type="text"
+            id = "del_lunch"
+            placeholder="삭제할 점심을 입력해주세요"
+            name = ""
+            >
+            <button id = "del_btn">삭제하기</button>
+        </div>
+        <div class="event_box">
+            <h3>오늘의 당신의 점심은?</h3>
+            <p id = "event_result">이곳에서 당신의 점심이 골라집니다</p>
+            <button id = "event_btn">추첨하기</button>
+        </div>
+        <!-- html -->
+    </div>
+    <script>
+        const lunchs = ["김치덮밥", "계란스프", "건강 치킨샐러리"]
+        // 기본적 점심메뉴 보여주기 틀 만들기
+        for (let i = 0; i < lunchs.length; i++) {
+            renderLunch(lunchs[i]);
+        }
+        //점심메뉴 렌더런치로 받은거 한칸씩 내려서 실행시는거임
+        //렌더런치에 점심들(리스트)의 i번째 인덱싱을 반복해서 꺼넨다는거
+
+        // 점심매뉴 보여주기 + 추가기능
+        function renderLunch (lunch){
+            const li = document.createElement("li");
+            li.textContent = lunch;
+            document.getElementById("lunch_list").appendChild(li);
+        }
+
+        function addlunch (lunch){
+            for(let i = 0; i < lunchs.length; i++){
+                if (lunch){
+                    lunchs.push(lunch);
+                    return true;
+                } else {
+
+                }
+            }
+        return false;
+        }
+
+        document.getElementById("add_btn").onclick = function(){
+            const add = document.getElementById("input_lunch").value;
+            if(addlunch(add)){
+                renderLunch(add);
+            }else{
+                alert("점심메뉴를 입력해주세요");
+            }
+        }
+        // 삭제기능
+        function deleteLunch (lunch){
+            const list = document.getElementById("lunch_list")
+            const item = list.getElementsByTagName("li")
+            for (let i = 0; i < item.length; i++){
+                if(item[i].textContent === lunch){
+                    list.removeChild(item[i])
+                    break
+                }
+            }
+        }
+        function del_addlunch (lunch){
+            for(let i = 0; i < lunchs.length; i++){
+                if (lunch === lunchs[i]){
+                    lunchs.splice(i, 1);
+                    return true;
+                } else {
+
+                }
+            }
+            return false;
+        }
+        document.getElementById("del_btn").onclick = function(){
+            const del = document.getElementById("del_lunch").value
+            if(del === ""){
+                alert("삭제할 점심을 입력해주십시오")
+                return
+            }
+            if(del_addlunch(del)){
+                deleteLunch(del)
+            }else{
+                alert(`메뉴에 ${del}은 없습니다`)
+            }
+        }
+
+        // 이벤트 추첨 기능
+        function getRandomNumber (n){
+            return Math.floor(Math.random() * n);
+        }
+        document.getElementById("event_btn").onclick = function(){
+            const random = getRandomNumber(lunchs.length)
+
+            document.getElementById("event_result").textContent =
+            `오늘점심은 ${lunchs[random]} 어떠신가요?`
+        }
+        // js //
+    </script>
+</body>
+</html>
