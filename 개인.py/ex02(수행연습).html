@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        body{
+            background-color: rgb(245, 245, 245);
+            font-family: "Noto Sans KR", sans-serif;
+        }
+        h1{
+            color: rgb(50, 80, 160);
+        }
+        .warp{
+            width: 600px;
+            background-color: white;
+            border-radius: 10px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+        img{
+            width: 100%;
+            border-radius: 10px;
+        }
+        .manu_box{
+            margin-top: 20px;
+            padding: 15px;
+            background-color: rgb(235, 242, 255);
+            border-radius: 10px;
+        }
+        li{
+            margin-bottom: 8px;
+        }
+        .event_box{
+            margin-top: 20px;
+            padding: 15px;
+            background-color: rgb(255, 241, 210);
+            border-radius: 10px;
+        }
+        input{
+            width: 400px;
+            height: 34px;
+        }
+        button{
+            height: 38px;
+            background-color: rgb(50, 80, 160);
+            color:white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer
+        }
+        button:hover{
+            background-color:rgb(255, 120, 120);
+        }
+        /*css*/
+    </style>
+    <div class = warp>
+        <h1>우리반 간식소개 & 추첨</h1>
+        <p>친구들과 먹고 싶은 간식을 소개하고 추첨하는 웹 페이지입니다.</p>
+        <img src="snackbar-hero.png" alt="간식사진">
+        <div class = manu_box>
+        <h2>인기간식</h2>
+        <ul class = manu_list></ul>
+        </div>
+        <div class = manu_box>
+            <h2>간식 추가하기</h2>
+            <input 
+            type="text"
+            placeholder="추가할 간식이름"
+            id = input_snack
+            >
+            <button id = btn_add>추가</button>
+        </div>
+        <div class = event_box>
+            <h2>오늘의 간식</h2>
+            <p id = event_result>버튼을 누르면 간식이 추첨됩니다</p>
+            <button id = btn_event>간식추첨</button>
+        </div>
+        <!--html-->
+    </div>
+    <script>
+        const snacks = ["치즈 토스트","딸기 에이드","초코 쿠키"];
+        // 간식 추가하기
+        function renderSnack (snack) {
+            const li = document.createElement("li")
+            li.textContent = snack;
+            document.getElementsById("manu_list").appendChild(li)
+        }
+        
+        for(let i = 0; i < snacks.length; i++);
+            renderSnack(snacks[i]);
+
+        function addSnack () {
+            if(snack){
+                snacks.push(snack)
+                return true
+            }
+            return false
+        }
+        
+        //js//
+    </script>
+</body>
+</html>
