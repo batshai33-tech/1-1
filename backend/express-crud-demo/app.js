@@ -1,3 +1,4 @@
+//ex
 const express = require('express');
 const app = express();
 const fs = require('fs/promises');
@@ -11,10 +12,10 @@ app.use(express.json());
 // MySQL 커넥션 풀(Pool) 설정 (본인의 DB 정보로 변경 필요)
 
 const pool = mysql.createPool({
-host: 'localhost', //또는 127.0.0.1
+host: 'localhost', //또는 127.0.0.1 호스트(방장)
 user: 'root', // MySQL 사용자명
 password: "1234", // MySQL 비밀번호
-database: 'gbsw1-1', // 데이터베이스 이름
+database: 'aaai', // 데이터베이스 이름
 port: "3306",
 waitForConnections: true,
 connectionLimit: 10,
@@ -36,11 +37,18 @@ let users = [
 app.use(express.urlencoded({extends:true}))
 // from 태그 안에 들어오는 내용 파싱(번역) 하기위한 미들웨어
 
-app.post('/adduser', (req, res) => {
+app.post('/adduser', async (req, res) => {
         console.log("req.body");
         console.log(req.body);
-        res.status(200).json({"msg":"success"});
-    });
+        const {name,email} = req.body;
+        try{
+            await pool.query(`insert into users (name,email) values(?,?)`,[name,email])
+            res.send("성공적으로 행 데이터를 넣었네? 너 받볻먿청이가 아니구나!?")
+        }catch(e){
+            console.log(e);
+            res.send("error났어 뭐가 이상해");
+        }
+    })
 
 
 
