@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원 관리 페이지</title>
+    <style>
+        /* 1. 기본 스타일 리셋 및 배경 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f0f2f5;
+            color: #333;
+            padding: 2rem 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* 메인 타이틀 */
+        .page-title {
+            font-size: 2rem;
+            color: #1e293b;
+            margin-bottom: 2rem;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        /* 2. 전체 카드를 감싸는 컨테이너 */
+        .wrapper {
+            width: 100%;
+            max-width: 500px;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem; /* 카드 사이의 간격 */
+        }
+
+        /* 3. 개별 카드 스타일 */
+        .card {
+            background-color: #ffffff;
+            padding: 1.8rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border-top: 5px solid #cbd5e1; /* 기본 상단 테두리 선 */
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1.2rem;
+            color: #1e293b;
+            font-weight: 600;
+        }
+
+        /* 기능별 포인트 컬러 구분 */
+        .card.add { border-top-color: #10b981; }    /* 등록: 초록색 */
+        .card.delete { border-top-color: #ef4444; } /* 삭제: 빨간색 */
+        .card.update { border-top-color: #3b82f6; } /* 수정: 파란색 */
+
+        /* 4. 폼 레이아웃 및 입력창 */
+        .form-group {
+            margin-bottom: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .form-group label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #64748b;
+            text-transform: uppercase;
+        }
+
+        .form-group input[type="text"] {
+            width: 100%;
+            padding: 10px 14px;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        /* 입력창에 포커스 갔을 때 효과 */
+        .form-group input[type="text"]:focus {
+            border-color: #94a3b8;
+        }
+
+        /* 5. 버튼 스타일링 */
+        .btn {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.2s, transform 0.1s;
+            margin-top: 0.5rem;
+        }
+
+        .btn:active {
+            transform: scale(0.98);
+        }
+
+        /* 버튼 색상 분리 */
+        .btn-add { background-color: #10b981; }
+        .btn-add:hover { background-color: #059669; }
+
+        .btn-delete { background-color: #ef4444; }
+        .btn-delete:hover { background-color: #dc2626; }
+
+        .btn-update { background-color: #3b82f6; }
+        .btn-update:hover { background-color: #2563eb; }
+    </style>
+</head>
+<body>
+
+    <h1 class="page-title">회원 관리 시스템</h1>
+
+    <div class="wrapper">
+        
+        <div class="card add">
+            <h3>✨ 새로운 회원 등록</h3>
+            <form action="/adduser" method="post">
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="text" name="email" placeholder="이메일을 입력하세요">
+                </div>
+                <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" name="name" placeholder="이름을 입력하세요">
+                </div>
+                <input type="submit" value="전송하기" class="btn btn-add">
+            </form>
+        </div>
+
+        <div class="card delete">
+            <h3>🗑️ 회원 정보 삭제</h3>
+            <form action="/deluser" method="post">
+                <div class="form-group">
+                    <label>ID</label>
+                    <input type="text" name="id" placeholder="삭제할 회원 ID 입력">
+                </div>
+                <input type="submit" value="삭제하기" class="btn btn-delete">
+            </form>
+        </div>
+
+        <div class="card update">
+            <h3>✏️ 회원 정보 수정</h3>
+            <form action="/upduser" method="post">
+                <div class="form-group">
+                    <label>ID</label>
+                    <input type="text" name="id" placeholder="수정할 회원 ID 입력">
+                </div>
+                <div class="form-group">
+                    <label>New Name</label>
+                    <input type="text" name="name" placeholder="바꿀 이름 입력">
+                </div>
+                <div class="form-group">
+                    <label>New Email</label>
+                    <input type="text" name="email" placeholder="바꿀 이메일 입력">
+                </div>
+                <input type="submit" value="수정하기" class="btn btn-update">
+            </form>
+        </div>
+
+    </div>
+
+</body>
+</html>

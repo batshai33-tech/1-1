@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Page</title>
+    <style>
+        /* 1. 기본 초기화 및 배경 설정 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f4f6f9;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* 2. 메인 카드 레이아웃 */
+        .container {
+            background-color: #ffffff;
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        /* 3. 타이틀 및 텍스트 스타일 */
+        h1 {
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #94a3b8;
+            margin-bottom: 0.5rem;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            color: #1e293b;
+            margin-bottom: 2rem;
+            font-weight: 700;
+        }
+
+        /* 4. 버튼(링크) 스타일링 */
+        .btn-link {
+            display: inline-block;
+            width: 100%;
+            padding: 12px 24px;
+            background-color: #4f46e5; /* 세련된 인디고 블루 */
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.2s ease-in-out;
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.2);
+        }
+
+        /* 호버 효과 (마우스 올렸을 때) */
+        .btn-link:hover {
+            background-color: #4338ca;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(79, 70, 229, 0.3);
+        }
+
+        /* 클릭할 때 효과 */
+        .btn-link:active {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>main</h1>
+        <h2>Users</h2>
+        {% for user in users %}
+            {{user.id}} {{user.email}} {{user.name}}
+        {% endfor %}
+        <a href="/bb" class="btn-link">입력·삭제·수정 페이지 가기</a>
+    </div>
+
+</body>
+</html>
